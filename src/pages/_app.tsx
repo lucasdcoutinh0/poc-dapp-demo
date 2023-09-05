@@ -1,7 +1,8 @@
 import { ErrorFallbackProps, ErrorComponent, ErrorBoundary, AppProps } from "@blitzjs/next"
 import { AuthenticationError, AuthorizationError } from "blitz"
 import React from "react"
-import { WagmiConfig, createConfig, configureChains, mainnet } from "wagmi"
+import { WagmiConfig, createConfig, configureChains, Chain, mainnet } from "wagmi"
+import { polygonMumbai } from "wagmi/chains"
 import { publicProvider } from "wagmi/providers/public"
 import { withBlitz } from "src/blitz-client"
 import "src/styles/globals.css"
@@ -27,7 +28,7 @@ function RootErrorFallback({ error }: ErrorFallbackProps) {
 }
 
 const { chains, publicClient, webSocketPublicClient } = configureChains(
-  [mainnet],
+  [mainnet, polygonMumbai],
   [publicProvider()]
 )
 
