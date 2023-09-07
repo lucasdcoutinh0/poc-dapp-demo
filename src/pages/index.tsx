@@ -11,8 +11,19 @@ const Home: BlitzPage = () => {
   const { isConnected } = useAccount()
   return (
     <Layout title="Home">
-      <h1>Crypto Demo</h1>
-      {isMetamaskInstalled ? isConnected ? <Menu /> : <Login /> : <MissingMetamask />}
+      {isMetamaskInstalled ? (
+        isConnected ? (
+          <Menu />
+        ) : (
+          <>
+            <h1>Crypto Demo</h1> <Login />{" "}
+          </>
+        )
+      ) : (
+        <>
+          <h1>Crypto Demo</h1> <MissingMetamask />
+        </>
+      )}
     </Layout>
   )
 }

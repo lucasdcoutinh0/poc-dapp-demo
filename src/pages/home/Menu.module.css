@@ -1,23 +1,6 @@
 .container {
+  padding: 25px;
   display: flex;
-  flex-direction: row;
-  width: 100%;
-  justify-content: space-around;
-}
-
-.box {
-  display: flex;
-  justify-content: center;
   align-items: center;
-  flex-direction: column;
-  background-color: #252525;
-  color: #fbfbfb;
-  width: 300px;
-  height: 300px;
-  border-radius: 8px;
-}
-
-.icon {
-  width: 50px;
-  height: 50px;
+  gap: 20px;
 }
