@@ -1,24 +1,17 @@
 import { useEffect, useState } from "react"
 import { ethers, Provider } from "ethers"
+import { getProvider } from "src/core/utils/getProvider"
+import { getAccount } from "src/core/utils/getAccount"
 import b3daABI from "contracts/b3daABI.json"
 
 const CONTRACT_ADDRESS = "0x85f23204329f524D2AD7E424397aB0e524c51808"
-
-const getProvider = () => {
-  return new ethers.BrowserProvider(window.ethereum)
-}
-
-const getAccount = async (provider): Promise<string> => {
-  const signer = await provider.getSigner()
-  return signer.getAddress()
-}
 
 const getContract = (provider: Provider): ethers.Contract => {
   return new ethers.Contract(CONTRACT_ADDRESS, b3daABI, provider)
 }
 
 export const useBalance = () => {
-  const [balance, setBalance] = useState<string>("0")
+  const [balance, setBalance] = useState()
 
   useEffect(() => {
     const fetchBalance = async () => {
@@ -29,7 +22,7 @@ export const useBalance = () => {
 
         if (contract && contract.balanceOf) {
           const balance = await contract.balanceOf(account)
-          setBalance(ethers.formatEther(balance))
+          setBalance(balance)
         }
       } catch (err) {
         console.error(err)

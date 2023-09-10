@@ -1,12 +1,16 @@
+import { ethers } from "ethers"
 import { useBalance, useTokenInfo } from "../hooks/useERC20"
 import { InfoItem } from "./InfoItem"
 import css from "./card.module.css"
 export const Erc20Card = () => {
-  const balance = useBalance()
+  const balanceBigNumber = useBalance()
   const info = useTokenInfo()
   const truncatedOwner = `${info.owner.substring(0, 6)}...${info.owner.substring(
     info.owner.length - 4
   )}`
+  const balance = balanceBigNumber
+    ? ethers.formatUnits(balanceBigNumber, info.decimals)
+    : "Loading..."
 
   return (
     <div className={css.card}>
