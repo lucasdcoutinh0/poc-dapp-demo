@@ -1,5 +1,5 @@
 import { Form, Field } from "react-final-form"
-import { transfer, useBalance } from "../hooks/useERC20"
+import { transfer, useBalance } from "../../hooks/useERC20"
 import css from "./card.module.css"
 import { ethers } from "ethers"
 

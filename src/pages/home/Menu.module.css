@@ -1,6 +1,25 @@
 .container {
   padding: 25px;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   gap: 20px;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  width: 100%;
+}
+
+.NFTNav {
+  display: flex;
+  width: 100%;
+  gap: 20px;
+}
+
+.Link {
+  border-bottom: 1px solid #fff;
+  cursor: pointer;
 }

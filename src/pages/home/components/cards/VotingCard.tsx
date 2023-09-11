@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { useBallotInfo, vote } from "../hooks/useSimpleVoting"
+import { useBallotInfo, vote } from "../../hooks/useSimpleVoting"
 import css from "./card.module.css"
 
 export const VostingCard = () => {

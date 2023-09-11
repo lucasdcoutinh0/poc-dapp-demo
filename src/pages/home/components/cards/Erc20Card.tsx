@@ -1,5 +1,5 @@
 import { ethers } from "ethers"
-import { useBalance, useTokenInfo } from "../hooks/useERC20"
+import { useBalance, useTokenInfo } from "../../hooks/useERC20"
 import { InfoItem } from "./InfoItem"
 import css from "./card.module.css"
 export const Erc20Card = () => {
